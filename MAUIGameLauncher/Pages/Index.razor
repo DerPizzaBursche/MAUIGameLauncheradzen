@@ -1,0 +1,91 @@
+﻿@page "/"
+@using MAUIGameLauncher.Data;
+@using MAUIGameLauncher.Model;
+@using System.Diagnostics;
+    
+@inject MAUIGameLauncher.Data.Games Games
+@inject MAUIGameLauncher.Data.Launchers Launchers
+
+<h1>Game Launcher v.0.1</h1>
+<RadzenPanel AllowCollapse="true">
+    <HeaderTemplate>
+        <h4>Steam</h4>
+    </HeaderTemplate>
+    <ChildContent>
+        <RadzenCard Class="mt-3">
+            <RadzenDataList Data="@steamGames" TItem="Game" PageSize="3" WrapItems="true">
+                <Template Context="context">   
+                    <RadzenCard class="p-gameCard">
+                        <div class="c-gameInfo">
+                            <h3>@(context.gameName)</h3>
+                            <hr />
+                        </div>
+                        <div class="c-playBttn">
+                            <RadzenButton Click=@(args => OnClick(context.gameLaunchPath)) Text="Spielen" Icon="play_arrow" ButtonStyle="ButtonStyle.Primary"/>
+                        </div> 
+                    </RadzenCard>
+                </Template>
+            </RadzenDataList>
+        </RadzenCard>
+    </ChildContent>
+ </RadzenPanel>
+ <RadzenPanel AllowCollapse="true">
+    <HeaderTemplate>
+        <h4>Epic Games</h4>
+    </HeaderTemplate>
+    <ChildContent>
+        <RadzenCard Class="mt-3">
+            <RadzenDataList Data="@epicGames" TItem="Game" PageSize="3" WrapItems="true">
+                <Template Context="context">   
+                    <RadzenCard style="height:200px; width: 300px;" Class="p-gameCard">
+                        <div class="c-gameInfo">
+                            <h3>@(context.gameName)</h3>
+                            <hr />
+                        </div>
+                        <div class="c-playBttn">
+                            <RadzenButton Click=@(args => OnClick(context.gameLaunchPath)) Text="Spielen" Icon="play_arrow" ButtonStyle="ButtonStyle.Primary"/>
+                        </div> 
+                    </RadzenCard>
+                </Template>
+            </RadzenDataList>
+        </RadzenCard>
+    </ChildContent>
+ </RadzenPanel>
+ <RadzenPanel AllowCollapse="true">
+    <HeaderTemplate>
+        <h4>Ubisoft Connect</h4>
+    </HeaderTemplate>
+    <ChildContent>
+        <RadzenCard Class="mt-3">
+            <RadzenDataList Data="@ubiGames" TItem="Game" PageSize="3" WrapItems="true">
+                <Template Context="context">   
+                    <RadzenCard style="height:200px; width: 300px;" Class="p-gameCard">
+                        <div class="c-gameInfo">
+                            <h3>@(context.gameName)</h3>
+                            <hr />
+                        </div>
+                        <div class="c-playBttn">
+                            <RadzenButton Click=@(args => OnClick(context.gameLaunchPath)) Text="Spielen" Icon="play_arrow" ButtonStyle="ButtonStyle.Primary"/>
+                        </div> 
+                    </RadzenCard>
+                </Template>
+            </RadzenDataList>
+        </RadzenCard>
+    </ChildContent>
+ </RadzenPanel>
+ 
+
+
+@code {
+    IEnumerable<Game> steamGames;
+    IEnumerable<Game> epicGames;
+    IEnumerable<Game> ubiGames;
+    protected override async Task OnInitializedAsync()
+    {
+        Games.startupCheckGames();
+        steamGames = Games.games.Where(x => x.LauncherId == 0).ToList();
+        epicGames = Games.games.Where(x => x.LauncherId == 1).ToList();
+        ubiGames = Games.games.Where(x => x.LauncherId == 3).ToList();
+    }
+    void OnClick(string gameLaunchPath) => Process.Start(gameLaunchPath);
+}
