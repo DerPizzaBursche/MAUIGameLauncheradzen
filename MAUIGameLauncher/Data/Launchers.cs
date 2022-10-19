@@ -21,8 +21,5 @@ namespace MAUIGameLauncher.Data
             launchers.Add(new Launcher() { Id = 3, Name = "Ubisoft Connect" });
             launchers.Add(new Launcher() { Id = 4, Name = "Xbox" });
         }
-
-
-
     }
 }
