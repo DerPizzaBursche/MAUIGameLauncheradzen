@@ -50,9 +50,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Radzen.Blazor" Version="3.19.4" />
+	  <PackageReference Include="Radzen.Blazor" Version="4.1.9" />
 	  <PackageReference Include="Radzen.Blazor.GridColumnVisibilityChooser" Version="2.2.0" />
 	  <PackageReference Include="Saapp.UI.Radzen.Blazor" Version="3.13.4" />
+	  <PackageReference Include="System.Data.SQLite" Version="1.0.116" />
 	</ItemGroup>
 
 </Project>

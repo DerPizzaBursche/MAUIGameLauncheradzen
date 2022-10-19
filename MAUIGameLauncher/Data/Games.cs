@@ -1,16 +1,19 @@
 ﻿using System.Diagnostics;
 using MAUIGameLauncher.Model;
 
+
 namespace MAUIGameLauncher.Data
 {
     public class Games
     {
         public List<Game> games = new List<Game>();
         public List<Drive> steamPaths = new List<Drive>();
-
+        public SqLiteService sqLiteService = new SqLiteService();
 
         public void startupCheckGames()
         {
+            
+            sqLiteService.DBCheck();
             checkSteam();
             getSteamPaths();
             getSteamGames();
