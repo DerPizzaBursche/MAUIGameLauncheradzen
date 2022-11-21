@@ -13,7 +13,7 @@ namespace MAUIGameLauncher.Data
         public void startupCheckGames()
         {
             
-            sqLiteService.DBCheck();
+            //sqLiteService.DBCheck();
             checkSteam();
             getSteamPaths();
             getSteamGames();
