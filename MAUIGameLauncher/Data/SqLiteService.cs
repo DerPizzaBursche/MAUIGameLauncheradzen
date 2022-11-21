@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
+using System.Reflection;
+using System.IO;
 
 namespace MAUIGameLauncher.Data
 {
@@ -11,9 +13,11 @@ namespace MAUIGameLauncher.Data
     {
         public void DBCheck()
         {
-            string path = @"C:\Users\nickr\Desktop\MAUIGameLauncher\MAUIGameLauncher\Data\Games.db";
+            var syspath = System.AppDomain.CurrentDomain.BaseDirectory;
+            string path = syspath + "Games.db";
             if(!File.Exists(path))
                 using (FileStream fs = File.Create(path));
         }
     }
+
 }
