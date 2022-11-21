@@ -6,73 +6,90 @@
 @inject MAUIGameLauncher.Data.Games Games
 @inject MAUIGameLauncher.Data.Launchers Launchers
 
-<h1>Game Launcher v.0.1</h1>
-<RadzenPanel AllowCollapse="true">
-    <HeaderTemplate>
-        <h4>Steam</h4>
-    </HeaderTemplate>
-    <ChildContent>
-        <RadzenCard Class="mt-3">
-            <RadzenDataList Data="@steamGames" TItem="Game" PageSize="3" WrapItems="true">
-                <Template Context="context">   
-                    <RadzenCard class="p-gameCard">
-                        <div class="c-gameInfo">
-                            <h3>@(context.gameName)</h3>
-                            <hr />
-                        </div>
-                        <div class="c-playBttn">
-                            <RadzenButton Click=@(args => OnClick(context.gameLaunchPath)) Text="Spielen" Icon="play_arrow" ButtonStyle="ButtonStyle.Primary"/>
-                        </div> 
-                    </RadzenCard>
-                </Template>
-            </RadzenDataList>
-        </RadzenCard>
-    </ChildContent>
- </RadzenPanel>
- <RadzenPanel AllowCollapse="true">
-    <HeaderTemplate>
-        <h4>Epic Games</h4>
-    </HeaderTemplate>
-    <ChildContent>
-        <RadzenCard Class="mt-3">
-            <RadzenDataList Data="@epicGames" TItem="Game" PageSize="3" WrapItems="true">
-                <Template Context="context">   
-                    <RadzenCard style="height:200px; width: 300px;" Class="p-gameCard">
-                        <div class="c-gameInfo">
-                            <h3>@(context.gameName)</h3>
-                            <hr />
-                        </div>
-                        <div class="c-playBttn">
-                            <RadzenButton Click=@(args => OnClick(context.gameLaunchPath)) Text="Spielen" Icon="play_arrow" ButtonStyle="ButtonStyle.Primary"/>
-                        </div> 
-                    </RadzenCard>
-                </Template>
-            </RadzenDataList>
-        </RadzenCard>
-    </ChildContent>
- </RadzenPanel>
- <RadzenPanel AllowCollapse="true">
-    <HeaderTemplate>
-        <h4>Ubisoft Connect</h4>
-    </HeaderTemplate>
-    <ChildContent>
-        <RadzenCard Class="mt-3">
-            <RadzenDataList Data="@ubiGames" TItem="Game" PageSize="3" WrapItems="true">
-                <Template Context="context">   
-                    <RadzenCard style="height:200px; width: 300px;" Class="p-gameCard">
-                        <div class="c-gameInfo">
-                            <h3>@(context.gameName)</h3>
-                            <hr />
-                        </div>
-                        <div class="c-playBttn">
-                            <RadzenButton Click=@(args => OnClick(context.gameLaunchPath)) Text="Spielen" Icon="play_arrow" ButtonStyle="ButtonStyle.Primary"/>
-                        </div> 
-                    </RadzenCard>
-                </Template>
-            </RadzenDataList>
-        </RadzenCard>
-    </ChildContent>
- </RadzenPanel>
+<h1 class="main-Header">Game Launcher v.0.1</h1>
+<div class="">
+    <div class="">
+        <h4 class="card-title" data-bs-toggle="collapse" href="#collapseOne"> Steam </h4>
+    </div>
+    <div id="collapseOne" class="collapse show " data-bs-parent="#accordion">
+        @foreach (var item in steamGames)
+        {
+            <div class="Card margin-bx game">
+                <div class="gamecard-Img">
+                </div>
+                <div class="gamecard">
+                    <h4>@(item.gameName)</h4>
+
+                </div>
+                <div class="gameCard-Info margin-txt">
+                    Placeholder
+                </div>
+                <div class="gamecard-Bttn">
+                    <button class="bttn-1 bi bi-play" onclick="@(() => OnClick(item.gameLaunchPath))">
+                    </button>
+
+                </div>
+            </div>
+            <hr />
+        }
+    </div>
+</div>
+<br />
+<div class="">
+    <div class="">
+        <h4 class="card-title" data-bs-toggle="collapse" href="#collapseTwo"> Epic Games </h4>
+    </div>
+    <div id="collapseTwo" class="collapse show " data-bs-parent="#accordion">
+        @foreach (var item in epicGames)
+        {
+            <div class="Card margin-bx game">
+                <div class="gamecard-Img">
+                </div>
+                <div class="gamecard">
+                    <h4>@(item.gameName)</h4>
+
+                </div>
+                <div class="gameCard-Info margin-txt">
+                    Placeholder
+                </div>
+                <div class="gamecard-Bttn">
+                    <button class="bttn-1 bi bi-play" onclick="@(() => OnClick(item.gameLaunchPath))">
+                    </button>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<br />
+<div class="">
+    <div class="">
+        <h4 class="card-title" data-bs-toggle="collapse" href="#collapseThree"> Ubisoft Connect </h4>
+    </div>
+    <div id="collapseThree" class="collapse show " data-bs-parent="#accordion">
+        @foreach (var item in ubiGames)
+        {
+            <div class="Card margin-bx game">
+                <div class="gamecard-Img">
+                </div>
+                <div class="gamecard">
+                    <h4>@(item.gameName)</h4>
+
+                </div>
+                <div class="gameCard-Info margin-txt">
+                    Placeholder
+                </div>
+                <div class="gamecard-Bttn">
+                    <button class="bttn-1 bi bi-play" onclick="@(() => OnClick(item.gameLaunchPath))">
+                    </button>
+
+                </div>
+            </div>
+            <hr />
+        }
+    </div>
+</div>
+<br />
  
 
 
