@@ -1,0 +1,8 @@
+[
+  {
+    "outputFile": "gulp.es5.js",
+    "inputFile": "gulp.js",
+    "sourceMap": false,
+    "useNodeSass": false
+  }
+]
