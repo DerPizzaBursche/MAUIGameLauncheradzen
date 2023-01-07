@@ -10,31 +10,31 @@
 <div class="">
     <div class="">
         <h4 class="card-title" data-bs-toggle="collapse" href="#collapseOne"> Steam </h4>
-    </div>
-    <div id="collapseOne" class="collapse show " data-bs-parent="#accordion">
-        @foreach (var item in steamGames)
-        {
-            <div class="Card margin-bx game">
-                <div class="gamecard-Img">
-                </div>
-                <div class="gamecard">
-                    <h4>@(item.gameName)</h4>
+        <div id="collapseOne" class="collapse show " data-bs-parent="#accordion">
+            @foreach (var item in steamGames)
+            {
+                <div class="Card margin-bx game">
+                    <div class="gamecard-Img">
+                    </div>
+                    <div class="gamecard">
+                        <h4>@(item.gameName)</h4>
 
-                </div>
-                <div class="gameCard-Info margin-txt">
-                    Placeholder
-                </div>
-                <div class="gamecard-Bttn">
-                    <button class="bttn-1 bi bi-play" onclick="@(() => OnClick(item.gameLaunchPath))">
-                    </button>
+                    </div>
+                    <div class="gameCard-Info margin-txt">
+                        Placeholder
+                    </div>
+                    <div class="gamecard-Bttn">
+                        <button class="bttn-1 bi bi-play" onclick="@(() => OnClick(item.gameLaunchPath))" >Spielen
+                        </button>
 
+                    </div>
                 </div>
-            </div>
-            <hr />
-        }
+                <hr />
+            }
+        </div>
     </div>
 </div>
-<br />
+<p></p>
 <div class="">
     <div class="">
         <h4 class="card-title" data-bs-toggle="collapse" href="#collapseTwo"> Epic Games </h4>
@@ -54,6 +54,7 @@
                 </div>
                 <div class="gamecard-Bttn">
                     <button class="bttn-1 bi bi-play" onclick="@(() => OnClick(item.gameLaunchPath))">
+                        Spielen
                     </button>
 
                 </div>
@@ -61,7 +62,7 @@
         }
     </div>
 </div>
-<br />
+<p></p>
 <div class="">
     <div class="">
         <h4 class="card-title" data-bs-toggle="collapse" href="#collapseThree"> Ubisoft Connect </h4>
@@ -81,6 +82,7 @@
                 </div>
                 <div class="gamecard-Bttn">
                     <button class="bttn-1 bi bi-play" onclick="@(() => OnClick(item.gameLaunchPath))">
+                        Spielen
                     </button>
 
                 </div>
@@ -89,7 +91,6 @@
         }
     </div>
 </div>
-<br />
  
 
 
